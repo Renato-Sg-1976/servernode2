@@ -20,6 +20,7 @@ router.get('/', (req, res, next) => {
   }
 
   res.send(personaggi)
+  //QUI POSSO COMMENTARE IL NEXT
   //next()
 }, (req,res, next) => {
 
