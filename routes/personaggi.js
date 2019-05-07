@@ -35,9 +35,9 @@ router.get('/', (req, res, next) => {
 // Params
 //http://localhost:7070/personaggi/9
 router.get('/:id/', (req, res) => {
-  const id = req.params.id
-  console.log('ID: ', id)
-  res.send(`personaggio id: ${id}`)
+  
+  const id = Number(req.params.id)
+  res.json(characters.characters.filter(personaggio => personaggio.id===id))
 })
 
 module.exports = router
