@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/webnicola/servernode#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongodb": "^3.2.4"
   }
 }
