@@ -19,8 +19,6 @@ router.get('/', (req, res, next) => {
     })
   }
 
-
-  
   res.send(personaggi)
   //QUI POSSO COMMENTARE IL NEXT
   //next()
@@ -39,5 +37,28 @@ router.get('/:id/', (req, res) => {
   const id = Number(req.params.id)
   res.json(characters.characters.filter(personaggio => personaggio.id===id))
 })
+
+
+router.post('/form', (req, res) => {
+  
+  const body = req.body
+  const {nome, cognome, occupazione, telefono, indirizzo} = req.body
+
+  const status = {}
+  console.log(nome, cognome, occupazione, telefono, indirizzo)
+
+  if (nome) {
+    status.code = 'ok'
+    status.message = `Benvenuto ${nome}`
+  }
+  else {
+    status.code = 'error'
+    status.message = 'nome non valido'
+    status.campo = 'nome'
+  }
+  res.send(status)
+})
+
+
 
 module.exports = router
