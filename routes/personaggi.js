@@ -1,9 +1,33 @@
 const express = require('express');
 const router = express.Router();
 const characters = require('../data/characters')
+
+
+
+const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectID;
+const uri = "mongodb+srv://dbUser:test@cluster0-aa1jo.mongodb.net/test?retryWrites=true";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+
+
+
 // QUery
 // chiedi http://localhost:7070/personaggi?colore=giallo&sesso=m
 router.get('/', (req, res, next) => {
+  client.connect((err) => {
+    if(err){
+      console.log('err');
+    }
+    
+    console.log('conn');
+  })
+  
+  const db = client.db("servernode");
+  const collection = db.collection("personaggi");
+  
+
+  
 
 
   const query = req.query
